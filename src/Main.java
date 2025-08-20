@@ -26,7 +26,7 @@ public class Main {
         if (resident) {
             System.out.println("Resident of Indiana: Yes");
         } else {
-            System.out.println("Resident: No");
+            System.out.println("Resident of Indiana: No");
         }
         if (financialAid) {
             System.out.println("Financial Aid: Yes");
@@ -60,18 +60,44 @@ public class Main {
         int classlevel = 0;
 
         if (credits <= 29) {
-             classlevel = 9;
+            classlevel = 1;
         } else if (credits <= 59) {
-            classlevel = 10;
-        }else if (credits <= 59) {
-            classlevel = 11;
-        }else {
-            classlevel = 12;
+            classlevel = 2;
+        } else if (credits <= 89) {
+            classlevel = 3;
+        } else {
+            classlevel = 4;
         }
 
-        // Turn leve into print like we did with standing.
+        if (classlevel == 1) {
+            System.out.println("Student Class Level: Freshman");
+        } else if (classlevel == 2) {
+            System.out.println("Student Class Level: Sophomore");
+        } else if (classlevel == 3) {
+            System.out.println("Student Class Level: Junior");
+        } else {
+            System.out.println("Student Class Level: Seniors");
+        }
 
+//        ELIGIBLE
+        System.out.println();
+        System.out.println("=== ELIGIBILITY STATUS ===");
+        if (standing == 4 && classlevel >= 3) {
+            System.out.println("Honor Society: Eligible");
+        } else {
+            System.out.println("Honor Society: Not Eligible");
+        }
+
+        if (credits >= 120 && gpa >= 2.0) {
+            System.out.println("Graduation: Eligible");
+        } else {
+            System.out.println("Graduation: Not Eligible");
+        }
+
+        if (gpa >= 3.0 && resident && !financialAid) {
+            System.out.println("Scholarship: Eligible");
+        } else {
+            System.out.println("Scholarship: Not Eligible");
+        }
     }
-
-
 }
